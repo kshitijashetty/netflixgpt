@@ -1,11 +1,16 @@
 import Header from "./Header";
 import { BG_URL } from "../utils/constants";
 import { useState } from "react";
+import { validateData } from "../utils/Validate";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
+  };
+  const onButtonClick = () => {
+    let sResult = validateData();
+    console.log(sResult);
   };
   return (
     <div>
@@ -21,23 +26,26 @@ const Login = () => {
           ""
         ) : (
           <input
-            className="p-3 mx-5 my-2 mt-8 w-11/12 rounded"
+            className="p-3 mx-5 my-2 mt-8 w-11/12 rounded text-black"
             type="text"
             placeholder="Name of the User"
           />
         )}
         <input
-          className="p-3 mx-5 my-2 w-11/12 rounded"
+          className="p-3 mx-5 my-2 w-11/12 rounded text-black"
           type="email"
           placeholder="Email"
         />
 
         <input
-          className="p-3 mx-5 my-2 w-11/12 rounded"
+          className="p-3 mx-5 my-2 w-11/12 rounded text-black"
           type="password"
           placeholder="Password"
         />
-        <button className="p-3 mx-5 my-2 w-11/12 rounded bg-red-900">
+        <button
+          className="p-3 mx-5 my-2 w-11/12 rounded bg-red-900"
+          onClick={onButtonClick}
+        >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
         <p className="p-3 mx-5 my-2 cursor-pointer" onClick={toggleSignInForm}>
