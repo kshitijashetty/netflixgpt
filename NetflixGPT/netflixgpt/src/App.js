@@ -1,8 +1,8 @@
-import logo from "./logo.svg";
-import "./App.css";
+import "./components/Body"
+import Body from "./components/Body";
 
 function App() {
-  return <div className="App text-3xl text-red-400" >Netflix</div>;
+  return <Body/>;
 }
 
 export default App;
